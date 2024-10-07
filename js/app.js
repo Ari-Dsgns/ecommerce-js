@@ -3,12 +3,12 @@ function listaDeArticulos(){
 
     let catalogo= "Articulos disponibles: \n";
 
-    catalogo += "1. Vinyl Nevermind Nirvana-35.00 \n";
-    catalogo += "2. Vinyl VS de Pearl Jam 42.00 \n";
-    catalogo += "3. Master of Puppets de Metallica 45.00 \n";
-    catalogo += "4. Mutter de Rammstein 58.00 \n";
-    catalogo += "5. Nevermind-Nirvana 10.00 \n";
-    catalogo += "6. Nevermind-Nirvana 20.00 \n";
+    catalogo += "1. Vinyl Nevermind-Nirvana-35.00 \n";
+    catalogo += "2. Vinyl Ten-Pearl Jam 42.00 \n";
+    catalogo += "3. Vinyl Master of Puppets-Metallica 45.00 \n";
+    catalogo += "4. Vinyl Mutter-Rammstein 58.00 \n";
+    catalogo += "5. Vinyl Facelift-Alice in Chains 48.00 \n";
+    catalogo += "6. Vinyl Revelations-Audioslave 60.00 \n";
 
     return catalogo;
 }
@@ -49,25 +49,33 @@ function seleccionArticulos() {
        //validamos datos correctos y los sumamos al conteo//
         if (elegirArticulos=== 1) {
         total += 35.00;
-        alert("Has agregado `vinyl Nevermind de Nirvana` a la lista del carrito");
+        alert("Has agregado `Vinyl Nevermind-Nirvana` al carrito");
         }else if (elegirArticulos===2) {
         total += 42.00;
-        alert("Has agregado `Vinyl VS de Pearl Jam` a la lista del carrito");
+        alert("Has agregado `Vinyl Ten-Pearl Jam` al carrito");
         }
         else if (elegirArticulos===3) {
         total += 45.00;
-        alert("Has agregado `Master of Puppets de Metallica` a la lista del carrito");
+        alert("Has agregado `Vinyl Master of Puppets-Metallica` al carrito");
         }
         else if (elegirArticulos===4) {
-        total += 45.00;
-        alert("Has agregado `Mutter de Rammstein` a la lista del carrito");
+        total += 58.00;
+        alert("Has agregado `Vinyl Mutter-Rammstein` al carrito");
+        }
+        else if (elegirArticulos===5) {
+        total += 48.00;
+        alert("Has agregado `Facelift-Alice in Chains` al carrito");
+        }
+        else if (elegirArticulos===6) {
+        total += 60.00;
+        alert("Has agregado `Facelift-Alice in Chains` al carrito");
         }
 
        //preguntamos si continua con la compra para seguir o salir del bucle//
-        seguirSeleccionando= prompt("¿Quieres mas articulos al carrito? (s/n)") === "s";
+        seguirSeleccionando= prompt("¿Quieres agregar mas articulos al carrito? (s/n)") === "s";
 
     }
-    
+
     //una vez fuera del bucle preguntamos si aplica o no descuento pora finalizar //
     aplicarDescuento= prompt("¿Quieres aplicar el descuento del 15% al total de la compra? (s/n) ");
 
@@ -75,12 +83,13 @@ function seleccionArticulos() {
 
     let nuevoTotal = total-(total*15)/100;
 
-        alert(`Gracias por tu compra. El total es ${nuevoTotal}`);
+        alert(`¡Gracias por tu compra! El total es ${nuevoTotal}€`);
 
     }
     
     if (aplicarDescuento==="n") {
-    alert(`Gracias por tu compra. El total es ${total}`); 
+
+        alert(`¡Gracias por tu compra! El total es ${total}€`); 
 
     }
 
