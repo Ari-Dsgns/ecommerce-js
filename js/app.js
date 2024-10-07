@@ -67,28 +67,24 @@ function seleccionArticulos() {
         seguirSeleccionando= prompt("¿Quieres mas articulos al carrito? (s/n)") === "s";
 
     }
-
     
-        let AplicarDescuento=parseInt(prompt("Escribe `10` para aplicarte un descuento del 10% en el total"));
+    //una vez fuera del bucle preguntamos si aplica o no descuento pora finalizar //
+    aplicarDescuento= prompt("¿Quieres aplicar el descuento del 15% al total de la compra? (s/n) ");
 
-        while(AplicarDescuento) {
-        
-        if (AplicarDescuento="10") {
+    if(aplicarDescuento==="s") {
 
-            let nuevoTotal = total-(total*10)/100;
-            alert("descuento aplicado correctamente");
-        
-        
-            alert(`Gracias por tu compra. El total es ${nuevoTotal}`);
-            break;
-        
-        
-        } if(!isNaN(AplicarDescuento) || AplicarDescuento===null || descuento===""){
-            alert("Por favor ingresa un dato valido");
-            continue;
-        }
+    let nuevoTotal = total-(total*15)/100;
+
+        alert(`Gracias por tu compra. El total es ${nuevoTotal}`);
+
     }
+    
+    if (aplicarDescuento==="n") {
+    alert(`Gracias por tu compra. El total es ${total}`); 
+
+    }
+
+
 } 
 
-seleccionArticulos();// esto genera un comentario de una linea
-
+seleccionArticulos()
