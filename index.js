@@ -76,3 +76,34 @@
 
 
 // Comprar();
+
+// let escribirCodigoPromocional=true;
+
+
+
+
+// aplicarDescuento= prompt("¿Escribe el codigo `WELCOME15` para aplicar el descuento del 15% ? de lo contrario escribe `salir` para proceder al pago sin descuento");
+
+//     if(aplicarDescuento==="WELCOME15") {
+
+//     let nuevoTotal = total-(total*15)/100;
+
+//         alert(`¡Gracias por tu compra! El total es ${nuevoTotal}€`);
+        
+
+//     }
+
+//     if (aplicarDescuento!=="WELCOME15") {
+
+//         alert(`No has ingresado ningun dato`); 
+        
+
+
+//     }
+    
+//     if (aplicarDescuento==="salir") {
+
+//         alert(`¡Gracias por tu compra! El total es ${total}€`); 
+        
+
+//     }

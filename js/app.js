@@ -17,7 +17,7 @@ function listaDeArticulos(){
 function seleccionArticulos() {
 
     //declaramos las variables de conteo y condicion//
-    let total = 0 ;
+    let total =Math.round (0) ;
     let seguirSeleccionando= true;
     
     //iniciamos el ciclo//
@@ -38,7 +38,7 @@ function seleccionArticulos() {
         if (elegirArticulos=== "salir") {
         break;
         }
-       //parseamos la variable para que nos devuelva el dato como numero //
+        //parseamos la variable para que nos devuelva el dato como numero //
         elegirArticulos = parseInt(elegirArticulos);
 
         if (isNaN(elegirArticulos) || elegirArticulos< 1 || elegirArticulos>6) {
@@ -46,7 +46,7 @@ function seleccionArticulos() {
         continue;
         }
 
-       //validamos datos correctos y los sumamos al conteo//
+        //validamos datos correctos y los sumamos al conteo//
         if (elegirArticulos=== 1) {
         total += 35.00;
         alert("Has agregado `Vinyl Nevermind-Nirvana` al carrito");
@@ -71,26 +71,60 @@ function seleccionArticulos() {
         alert("Has agregado `Facelift-Alice in Chains` al carrito");
         }
 
-       //preguntamos si continua con la compra para seguir o salir del bucle//
-        seguirSeleccionando= prompt("¿Quieres agregar mas articulos al carrito? (s/n)") === "s";
+        //preguntamos si continua con la compra para seguir o salir del bucle//
+        seguirSeleccionando= prompt("¿Quieres agregar mas articulos al carrito? (s/n)") ;
 
-    }
+        
 
-    //una vez fuera del bucle preguntamos si aplica o no descuento pora finalizar //
-    aplicarDescuento= prompt("¿Quieres aplicar el descuento del 15% al total de la compra? (s/n) ");
+        if (seguirSeleccionando==="s") {
+        continue;
 
-    if(aplicarDescuento==="s") {
+        }if(seguirSeleccionando==="n"){
+            break;
+        }
 
-    let nuevoTotal = total-(total*15)/100;
-
-        alert(`¡Gracias por tu compra! El total es ${nuevoTotal}€`);
-
+        if (seguirSeleccionando===null) {
+            alert(`Ingresa un dato válido`);
+            continue;
+        }
+    
     }
     
-    if (aplicarDescuento==="n") {
 
-        alert(`¡Gracias por tu compra! El total es ${total}€`); 
+    let totalSindescuento= Math.round (total*85/100);
+    let escribirCodigoPromocional=true;
 
+        while(escribirCodigoPromocional) {
+
+        aplicarDescuento= prompt("¿Escribe `welcome` para aplicar el descuento del 15% al total? o escribe `no tengo cupon` para proceder al pago sin descuento. De lo contrario escribe `salir` para terminar");
+
+        if(aplicarDescuento==="welcome") {
+
+        let nuevoTotal = total-(total*15)/100;
+
+            alert(`¡Gracias por tu compra! El total es ${nuevoTotal}€. Con el cupon "welcome" has ahorrado ${total-nuevoTotal}€`);
+            break;
+
+        }
+    
+        if (aplicarDescuento==="no tengo cupon") {
+
+            alert(`¡Gracias por tu compra! El total es ${total}€. Con el cupon "welcome" podrias haber ahorrado unos ${total-totalSindescuento}€ ¡Prueba aplicarlo la proxima vez! ;)`);
+            break;
+
+        }
+        if (aplicarDescuento==="salir") {
+            break;
+        }
+
+        if (aplicarDescuento!=="welcome" || aplicarDescuento!=="no tengo cupon"|| aplicarDescuento==="") {
+
+            alert(`Ingresa un dato válido`); 
+            continue;
+        
+        }
+        
+        
     }
 
 
