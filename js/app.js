@@ -36,6 +36,8 @@ function seleccionArticulos() {
         }
 
         if (elegirArticulos=== "salir") {
+            seguirSeleccionando=false;
+            escribirCodigoPromocional=false;
         break;
         }
         //parseamos la variable para que nos devuelva el dato como numero //
@@ -80,6 +82,7 @@ function seleccionArticulos() {
         continue;
 
         }if(seguirSeleccionando==="n"){
+            
             break;
         }
 
@@ -100,7 +103,7 @@ function seleccionArticulos() {
 
         if(aplicarDescuento==="welcome") {
 
-        let nuevoTotal = total-(total*15)/100;
+        let nuevoTotal = Math.round (total-(total*15)/100);
 
             alert(`¡Gracias por tu compra! El total es ${nuevoTotal}€. Con el cupon "welcome" has ahorrado ${total-nuevoTotal}€`);
             break;
