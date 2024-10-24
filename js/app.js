@@ -146,7 +146,7 @@
 
 
 /* ================================================================================
-=          fuciones internas de la app -Control de los productos
+=          fuciones internas de la app -Control de stock
 =====================================================================================*/
 
 
@@ -157,7 +157,7 @@ const productos=[
         ref:1,
         nombre:"Nevermind-Nirvana",
         precio:35,
-        stock:31,
+        stock:23,
 
     },
 
@@ -193,7 +193,7 @@ const productos=[
         ref:5,
         nombre:"Facelift-Alice in Chains",
         precio:48,
-        stock:10,
+        stock:5,
 
     },
 
@@ -202,29 +202,124 @@ const productos=[
         ref:6,
         nombre:"Revelations-Audioslave",
         precio:60,
-        stock:20,
+        stock:9,
+
+    },
+
+    {
+    
+        ref:7,
+        nombre:"OK Computer-Radiohead",
+        precio:58,
+        stock:12,
+
+    },
+
+    {
+    
+        ref:8,
+        nombre:"Siamese Dream-Smashinng Pumpkins",
+        precio:49,
+        stock:5,
+
+    },
+
+    {
+    
+        ref:9,
+        nombre:"Lateralus-Tool",
+        precio:79,
+        stock:1,
+
+    },
+
+    {
+    
+        ref:10,
+        nombre:"Rid of Me-PJ Harvey",
+        precio:27,
+        stock:6,
 
     }
 ] 
 
+//funcion principal que lanza las opciones disponibles que tiene el control de stock
+
+const controlDeProductos=()=> {
+
+    let seguirSeleccionando= true;
+
+    while(seguirSeleccionando) {
+
+        let opcionesDisponibles=prompt("CONTROL DE PRODUCTOS - Log: Invitado :) \n \n Selecciona entre estas opciones: \n  \n1. Ver lista de productos \n \n2. Agregar nuevo producto \n \n3. Eliminar producto \n \n4. Buscar producto \n \n5. Actualizar stock \n \n6. Salir \n");
+        
+        if(opcionesDisponibles==="1"){
+
+            verProductos();
+            continue;
+
+        }
+
+        if(opcionesDisponibles==="2"){
+
+            const nuevoProducto= solicitarDatosProducto();
+            agregarNuevoProducto(nuevoProducto);
+            alert("Producto agregado correctamente");
+            console.log(verProductos());
+
+            continue;
+
+        }
+
+        if(opcionesDisponibles==="3"){
+
+            const productoAEliminar=prompt("Escribe el nombre del producto a eliminar")
+            eliminarProducto(productoAEliminar);
+            console.log(verProductos());
+            continue;
+        }
+
+        if(opcionesDisponibles==="4"){
+            const preguntaBusquedaProducto=prompt("Escribe el nombre del producto que estas buscando")
+            buscarProducto(preguntaBusquedaProducto);
+            continue;
+        }
+
+        if(opcionesDisponibles==="5"){
+            preguntarStock();
+            continue;
+
+        }
 
 
+        if(opcionesDisponibles==="6"){
+            alert("¡Hasta pronto! ;)")
+            break;
+        }
 
+        if(opcionesDisponibles===null){
+            
+            break;
+        }
+        
 
-const añadirProducto=({ref, nombre, precio, stock})=> {
-
-    productos.push({ref,nombre,precio,stock});
+        else{
+            alert("ingresa una opcion valida");
+            continue;
+        }
+    
+    }
 
 };
 
-
-const mostrarProductos=()=>{
+//esta funcion recorre el array y muestra los productos de los objetos//
+const verProductos=()=>{
 
     let mensaje="";
-
+    //bucle para arrayas for of //
     for( let producto of productos ) {
 
-        mensaje += `
+        mensaje += ` 
         Ref: ${producto.ref}
         Nombre ${producto.nombre}
         Precio ${producto.precio}
@@ -235,6 +330,14 @@ const mostrarProductos=()=>{
     
 
 };
+
+//esta funcion agrega los obketos mediante el metodo push
+const agregarNuevoProducto=({ref, nombre, precio, stock})=> {
+
+    productos.push({ref,nombre,precio,stock});
+
+};
+
 
 const solicitarDatosProducto=()=>{
     let refProducto =prompt("Ingresa la referencia del producto");
@@ -252,62 +355,121 @@ const solicitarDatosProducto=()=>{
 
 };
 
-const eliminarProducto=()=>{
-    alert("prooducto eliminado")
-    //dejamos pendiente eta funcion
+//esta funcion agrega los objetos mediante el metodo push
+function preguntarStock(){
+
+    let nombre=prompt("Escribe el nombre del producto");
+    
+    let cantidad= parseInt(prompt("Escribe la cantidad a sumar al stock actual"));
+    
+    actualizarStock(nombre,cantidad)
+    verProductos()
+
+};
+//esta funcion busca el item dentro del objeto del array
+const actualizarStock =( nombre, cantidad)=>{
+    productos.forEach(producto => {
+    if (producto.nombre === nombre) {
+        producto.stock += parseInt(cantidad);
+    }
+    });
+    
+}
+
+
+//esta funcion utiliza el metodo splice
+const eliminarProducto=(nombre)=>{
+
+    const index= productos.findIndex((producto)=>producto.nombre===nombre)
+
+        if(index !== -1) {
+
+        productos.splice(index, 1);
+
+        alert(`Producto ${nombre} eliminado`);
+        
+
+        }else {
+
+        alert(`Producto ${nombre} no encontrado`);
+
+        }
 };
 
 
-//pdte funcion actualizar stock===
+//esta funcion utiliza el metodo find
+const buscarProducto=(nombre)=> {
 
-const controlProductos=()=> {
-
-    let seguirSeleccionando= true;
-
-    while(seguirSeleccionando) {
-
-        let opcionesDisponibles=prompt("Selecciona entre estas opciones: \n  \n1. Agregar productos \n \n2. Ver productos \n \n3. Eliminar productos \n \n4. Salir");
-
-        if(opcionesDisponibles==="1"){
-
-            const nuevoProducto= solicitarDatosProducto();
-            añadirProducto(nuevoProducto);
-            alert("Producto agregado correctamente")
-            //aqui podriamos hacer un actualizar stock?
-            continue;
-
-        }
-
-        if(opcionesDisponibles==="2"){
-
-            mostrarProductos();
-            continue;
-
-        }
-
-        if(opcionesDisponibles==="3"){
-            eliminarProducto();
-            continue;
-        }
-
-        if(opcionesDisponibles==="4"){
-            alert("¡Hasta pronto!")
-            break;
-        }
-
-        if(opcionesDisponibles===null){
-            //quieres salir)
-            break;
-        }
-        
-
-        else{
-            alert("ingresa una opcion valida");
-            continue;
-        }
     
+    const resultadoBusqueda= productos.find((producto) => producto.nombre===nombre);
+
+    if(resultadoBusqueda===nombre);{
+
+    console.table(resultadoBusqueda)
+
+    };
+};
+
+//En esta funcion simple usamos el bucle while para permanecer o salir de el 
+function loggin() {
+
+    let seguirPreguntando=true;
+
+    while(seguirPreguntando) {
+
+        let preguntaUsuario= prompt("Nombre de usuario \n \n (los datos de acceso podrás encontrarlos en el README )");
+
+        if(preguntaUsuario==="Invitado") {
+            
+            break;
+        }
+        else{
+            
+            alert("el nombre de usuario no es correcto");
+            
+            continue;
+        }
+    }
+
+    let continuarPreguntando=true;
+
+    while(continuarPreguntando) {
+
+        let preguntaContraseña=parseInt(prompt("Escribe tu contraseña"));
+
+        if(preguntaContraseña ===123456){
+            alert("¡Bienvenido Invitado!")
+            break;
+            
+        }
+
+        if(preguntaContraseña===!isNaN || preguntaContraseña !== 123456){
+            alert("contraseña incorrecta");
+            continue;
+        }
     }
 
 };
 
-controlProductos()
+//Datos para el log in //
+
+// usuario: Invitado //
+
+// contraseña: 123456 //
+
+
+// llamamos a las funciones //
+
+loggin();
+
+controlDeProductos();
+
+
+
+
+
+
+
+
+
+

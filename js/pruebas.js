@@ -65,6 +65,14 @@
 
 // };
 
+// const sumarStock=({id,stock})=>{
+
+// productos.push({id,stock});
+
+// return;
+
+
+// }
 
 // const mostrarProductos=()=>{
 
@@ -106,56 +114,8 @@
 // };
 
 
-// //pdte funcion actualizar stock===
 
-// const controlProductos=()=> {
 
-//     let seguirSeleccionando= true;
 
-//     while(seguirSeleccionando) {
 
-//         let opcionesDisponibles=prompt("Selecciona entre estas opciones: \n  \n1. Agregar productos \n \n2. Ver productos \n \n3. Eliminar productos \n \n4. Salir");
 
-//         if(opcionesDisponibles==="1"){
-
-//             const nuevoProducto= solicitarDatosProducto();
-//             añadirProducto(nuevoProducto);
-//             alert("Producto agregado correctamente")
-//             //aqui podriamos hacer un actualizar stock?
-//             continue;
-
-//         }
-
-//         if(opcionesDisponibles==="2"){
-
-//             mostrarProductos();
-//             continue;
-
-//         }
-
-//         if(opcionesDisponibles==="3"){
-//             eliminarProducto();
-//             continue;
-//         }
-
-//         if(opcionesDisponibles==="4"){
-//             alert("¡Hasta pronto!")
-//             break;
-//         }
-
-//         if(opcionesDisponibles===null){
-//             //quieres salir)
-//             break;
-//         }
-        
-
-//         else{
-//             alert("ingresa una opcion valida");
-//             continue;
-//         }
-    
-//     }
-
-// };
-
-// controlProductos()
