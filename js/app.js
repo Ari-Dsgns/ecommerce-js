@@ -141,335 +141,355 @@
 
 // seleccionArticulos()
 
-
-
-
-
 /* ================================================================================
 =          fuciones internas de la app -Control de stock
 =====================================================================================*/
 
+// const productos=[
 
-const productos=[
-
-    {
+//     {
     
-        ref:1,
-        nombre:"Nevermind-Nirvana",
-        precio:35,
-        stock:23,
+//         ref:1,
+//         nombre:"Nevermind-Nirvana",
+//         precio:35,
+//         stock:23,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:2,
-        nombre:"Ten-Pearl Jam",
-        precio:42,
-        stock:26,
+//         ref:2,
+//         nombre:"Ten-Pearl Jam",
+//         precio:42,
+//         stock:26,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:3,
-        nombre:"Master of Puppets-Metallica",
-        precio:45,
-        stock:16,
+//         ref:3,
+//         nombre:"Master of Puppets-Metallica",
+//         precio:45,
+//         stock:16,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:4,
-        nombre:"Mutter-Rammstein",
-        precio:58,
-        stock:8,
+//         ref:4,
+//         nombre:"Mutter-Rammstein",
+//         precio:58,
+//         stock:8,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:5,
-        nombre:"Facelift-Alice in Chains",
-        precio:48,
-        stock:5,
+//         ref:5,
+//         nombre:"Facelift-Alice in Chains",
+//         precio:48,
+//         stock:5,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:6,
-        nombre:"Revelations-Audioslave",
-        precio:60,
-        stock:9,
+//         ref:6,
+//         nombre:"Revelations-Audioslave",
+//         precio:60,
+//         stock:9,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:7,
-        nombre:"OK Computer-Radiohead",
-        precio:58,
-        stock:12,
+//         ref:7,
+//         nombre:"OK Computer-Radiohead",
+//         precio:58,
+//         stock:12,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:8,
-        nombre:"Siamese Dream-Smashinng Pumpkins",
-        precio:49,
-        stock:5,
+//         ref:8,
+//         nombre:"Siamese Dream-Smashinng Pumpkins",
+//         precio:49,
+//         stock:5,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:9,
-        nombre:"Lateralus-Tool",
-        precio:79,
-        stock:1,
+//         ref:9,
+//         nombre:"Lateralus-Tool",
+//         precio:79,
+//         stock:1,
 
-    },
+//     },
 
-    {
+//     {
     
-        ref:10,
-        nombre:"Rid of Me-PJ Harvey",
-        precio:27,
-        stock:6,
+//         ref:10,
+//         nombre:"Rid of Me-PJ Harvey",
+//         precio:27,
+//         stock:6,
 
-    }
-] 
+//     }
+// ] 
 
-//funcion principal que lanza las opciones disponibles que tiene el control de stock
+// const controlDeProductos=()=> {
 
-const controlDeProductos=()=> {
+//     let seguirSeleccionando= true;
 
-    let seguirSeleccionando= true;
+//     while(seguirSeleccionando) {
 
-    while(seguirSeleccionando) {
-
-        let opcionesDisponibles=prompt("CONTROL DE PRODUCTOS - Log: Invitado :) \n \n Selecciona entre estas opciones: \n  \n1. Ver lista de productos \n \n2. Agregar nuevo producto \n \n3. Eliminar producto \n \n4. Buscar producto \n \n5. Actualizar stock \n \n6. Salir \n");
+//         let opcionesDisponibles=prompt("CONTROL DE PRODUCTOS - Log: Invitado :) \n \n Selecciona entre estas opciones: \n  \n1. Ver lista de productos \n \n2. Agregar nuevo producto \n \n3. Eliminar producto \n \n4. Buscar producto \n \n5. Actualizar stock \n \n6. Salir \n");
         
-        if(opcionesDisponibles==="1"){
+//         if(opcionesDisponibles==="1"){
 
-            verProductos();
-            continue;
+//             verProductos();
+//             continue;
 
-        }
+//         }
 
-        if(opcionesDisponibles==="2"){
+//         if(opcionesDisponibles==="2"){
 
-            const nuevoProducto= solicitarDatosProducto();
-            agregarNuevoProducto(nuevoProducto);
-            alert("Producto agregado correctamente");
-            console.log(verProductos());
+//             const nuevoProducto= solicitarDatosProducto();
+//             agregarNuevoProducto(nuevoProducto);
+//             alert("Producto agregado correctamente");
+//             console.log(verProductos());
 
-            continue;
+//             continue;
 
-        }
+//         }
 
-        if(opcionesDisponibles==="3"){
+//         if(opcionesDisponibles==="3"){
 
-            const productoAEliminar=prompt("Escribe el nombre del producto a eliminar")
-            eliminarProducto(productoAEliminar);
-            console.log(verProductos());
-            continue;
-        }
+//             const productoAEliminar=prompt("Escribe el nombre del producto a eliminar")
+//             eliminarProducto(productoAEliminar);
+//             console.log(verProductos());
+//             continue;
+//         }
 
-        if(opcionesDisponibles==="4"){
-            const preguntaBusquedaProducto=prompt("Escribe el nombre del producto que estas buscando")
-            buscarProducto(preguntaBusquedaProducto);
-            continue;
-        }
+//         if(opcionesDisponibles==="4"){
+//             const preguntaBusquedaProducto=prompt("Escribe el nombre del producto que estas buscando")
+//             buscarProducto(preguntaBusquedaProducto);
+//             continue;
+//         }
 
-        if(opcionesDisponibles==="5"){
-            preguntarStock();
-            continue;
+//         if(opcionesDisponibles==="5"){
+//             preguntarStock();
+//             continue;
 
-        }
+//         }
 
 
-        if(opcionesDisponibles==="6"){
-            alert("¡Hasta pronto! ;)")
-            break;
-        }
+//         if(opcionesDisponibles==="6"){
+//             alert("¡Hasta pronto! ;)")
+//             break;
+//         }
 
-        if(opcionesDisponibles===null){
+//         if(opcionesDisponibles===null){
             
-            break;
-        }
+//             break;
+//         }
         
 
-        else{
-            alert("ingresa una opcion valida");
-            continue;
-        }
+//         else{
+//             alert("ingresa una opcion valida");
+//             continue;
+//         }
     
-    }
+//     }
 
-};
+// };
 
-//esta funcion recorre el array y muestra los productos de los objetos//
-const verProductos=()=>{
+// const verProductos=()=>{
 
-    let mensaje="";
-    //bucle para arrayas for of //
-    for( let producto of productos ) {
+//     let mensaje="";
+    
+//     for( let producto of productos ) {
 
-        mensaje += ` 
-        Ref: ${producto.ref}
-        Nombre ${producto.nombre}
-        Precio ${producto.precio}
-        Stock ${producto.stock}`;
-    }
+//         mensaje += ` 
+//         Ref: ${producto.ref}
+//         Nombre ${producto.nombre}
+//         Precio ${producto.precio}
+//         Stock ${producto.stock}`;
+//     }
 
-    console.table(productos);
+//     console.table(productos);
     
 
-};
-
-//esta funcion agrega los obketos mediante el metodo push
-const agregarNuevoProducto=({ref, nombre, precio, stock})=> {
-
-    productos.push({ref,nombre,precio,stock});
-
-};
+// };
 
 
-const solicitarDatosProducto=()=>{
-    let refProducto =prompt("Ingresa la referencia del producto");
-    let nombreProducto =prompt("Ingresa el nombre del producto");
-    let precioProducto =parseFloat(prompt("Ingresa el precio del producto"));
-    let stockProducto=parseInt(prompt ("Ingresa la cantidad de unidades disponibles"));
+// const agregarNuevoProducto=({ref, nombre, precio, stock})=> {
 
-    if(!isNaN(refProducto) && nombreProducto && !isNaN(precioProducto) && !isNaN(stockProducto)){
-        return {ref: refProducto, nombre: nombreProducto, precio:precioProducto, stock:stockProducto };
+//     productos.push({ref,nombre,precio,stock});
+
+// };
+
+
+// const solicitarDatosProducto=()=>{
+//     let refProducto =prompt("Ingresa la referencia del producto");
+//     let nombreProducto =prompt("Ingresa el nombre del producto");
+//     let precioProducto =parseFloat(prompt("Ingresa el precio del producto"));
+//     let stockProducto=parseInt(prompt ("Ingresa la cantidad de unidades disponibles"));
+
+//     if(!isNaN(refProducto) && nombreProducto && !isNaN(precioProducto) && !isNaN(stockProducto)){
+//         return {ref: refProducto, nombre: nombreProducto, precio:precioProducto, stock:stockProducto };
 
         
-    } else{
-        alert("Ingresa un dato valido");
-    }
+//     } else{
+//         alert("Ingresa un dato valido");
+//     }
 
-};
+// };
 
-//esta funcion agrega los objetos mediante el metodo push
-function preguntarStock(){
 
-    let nombre=prompt("Escribe el nombre del producto");
+// function preguntarStock(){
+
+//     let nombre=prompt("Escribe el nombre del producto");
     
-    let cantidad= parseInt(prompt("Escribe la cantidad a sumar al stock actual"));
+//     let cantidad= parseInt(prompt("Escribe la cantidad a sumar al stock actual"));
     
-    actualizarStock(nombre,cantidad)
-    verProductos()
+//     actualizarStock(nombre,cantidad)
+//     verProductos()
 
-};
-//esta funcion busca el item dentro del objeto del array
-const actualizarStock =( nombre, cantidad)=>{
-    productos.forEach(producto => {
-    if (producto.nombre === nombre) {
-        producto.stock += parseInt(cantidad);
-    }
-    });
+// };
+
+// const actualizarStock =( nombre, cantidad)=>{
+//     productos.forEach(producto => {
+//     if (producto.nombre === nombre) {
+//         producto.stock += parseInt(cantidad);
+//     }
+//     });
     
-}
+// }
 
 
-//esta funcion utiliza el metodo splice
-const eliminarProducto=(nombre)=>{
 
-    const index= productos.findIndex((producto)=>producto.nombre===nombre)
+// const eliminarProducto=(nombre)=>{
 
-        if(index !== -1) {
+//     const index= productos.findIndex((producto)=>producto.nombre===nombre)
 
-        productos.splice(index, 1);
+//         if(index !== -1) {
 
-        alert(`Producto ${nombre} eliminado`);
+//         productos.splice(index, 1);
+
+//         alert(`Producto ${nombre} eliminado`);
         
 
-        }else {
+//         }else {
 
-        alert(`Producto ${nombre} no encontrado`);
+//         alert(`Producto ${nombre} no encontrado`);
 
-        }
-};
+//         }
+// };
 
 
-//esta funcion utiliza el metodo find
-const buscarProducto=(nombre)=> {
+// const buscarProducto=(nombre)=> {
 
     
-    const resultadoBusqueda= productos.find((producto) => producto.nombre===nombre);
+//     const resultadoBusqueda= productos.find((producto) => producto.nombre===nombre);
 
-    if(resultadoBusqueda===nombre);{
+//     if(resultadoBusqueda===nombre);{
 
-    console.table(resultadoBusqueda)
+//     console.table(resultadoBusqueda)
 
-    };
-};
+//     };
+// };
 
-//En esta funcion simple usamos el bucle while para permanecer o salir de el 
-function loggin() {
 
-    let seguirPreguntando=true;
+// function loggin() {
 
-    while(seguirPreguntando) {
+//     let seguirPreguntando=true;
 
-        let preguntaUsuario= prompt("Nombre de usuario \n \n (los datos de acceso podrás encontrarlos en el README )");
+//     while(seguirPreguntando) {
 
-        if(preguntaUsuario==="Invitado") {
+//         let preguntaUsuario= prompt("Nombre de usuario \n \n (los datos de acceso podrás encontrarlos en el README )");
+
+//         if(preguntaUsuario==="Invitado") {
             
-            break;
-        }
-        else{
+//             break;
+//         }
+//         else{
             
-            alert("el nombre de usuario no es correcto");
+//             alert("el nombre de usuario no es correcto");
             
-            continue;
-        }
+//             continue;
+//         }
+//     }
+
+//     let continuarPreguntando=true;
+
+//     while(continuarPreguntando) {
+
+//         let preguntaContraseña=parseInt(prompt("Escribe tu contraseña"));
+
+//         if(preguntaContraseña ===123456){
+//             alert("¡Bienvenido Invitado!")
+//             break;
+            
+//         }
+
+//         if(preguntaContraseña===!isNaN || preguntaContraseña !== 123456){
+//             alert("contraseña incorrecta");
+//             continue;
+//         }
+//     }
+
+// };
+
+// loggin();
+
+// controlDeProductos();
+
+
+import {addToCart, createProduct, getCartItems } from "./carrito.js";
+import { renderProducts, updateCartUi } from "./ui.js";
+
+document.addEventListener("DOMContentLoaded",()=>{
+    renderProducts();
+    updateCartUi();
+    
+});
+
+// renderProducts();
+
+
+
+
+
+
+
+
+
+document.getElementById("containerList").addEventListener("click", (event)=>{
+
+    
+
+    if(event.target.classList.contains("btn")){
+
+        const card= event.target.closest(".product");
+        console.log("Card found:", card);
+        const productTitle=card.querySelector(".card__title").innerText;
+        console.log("Card found:", productTitle);
+        const productPrice=card.querySelector(".card__price").innerText;
+        console.log("Card found:", productPrice);
+        const productId=card.getAttribute("data-id");
+        console.log("Card found:", productId);
+
+        const product=createProduct(productId, productTitle, productPrice);
+        console.log(product);
+
+        addToCart(product, 1);
+        updateCartUi();
     }
 
-    let continuarPreguntando=true;
 
-    while(continuarPreguntando) {
-
-        let preguntaContraseña=parseInt(prompt("Escribe tu contraseña"));
-
-        if(preguntaContraseña ===123456){
-            alert("¡Bienvenido Invitado!")
-            break;
-            
-        }
-
-        if(preguntaContraseña===!isNaN || preguntaContraseña !== 123456){
-            alert("contraseña incorrecta");
-            continue;
-        }
-    }
-
-};
-
-//Datos para el log in //
-
-// usuario: Invitado //
-
-// contraseña: 123456 //
-
-
-// llamamos a las funciones //
-
-loggin();
-
-controlDeProductos();
-
-
-
-
-
-
-
+})
 
 
 

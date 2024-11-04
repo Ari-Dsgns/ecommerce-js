@@ -1,8 +1,307 @@
-body {
-  background-color: #2a2a2a;
-  color: white; }
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-#header {
+body {
+  background-color: #ffffffd1;
+  /* background-color: #c5c3ccd1; */
+  color: white;
+  padding-top: 60px;
+ }
+
+ #menu{
+  background-color: #9787be21;
+  font-size: 18px;
+  font-weight: 700;
+ }
+
+
+#div1{
+  
+  margin: 20px; 
+  margin-top: 10px;
+  width: 95%;
+  height: 480px;
   display: flex;
+  flex-direction: column;
+  gap: 20px;
   justify-content: center;
-  background-color: #989898; }
+  justify-self: center;
+  align-items: center;
+  background-position: center;
+  background-image: url(../assets/stephen-harlan-TUCVPkK3uwo-unsplash.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  color: rgb(255, 254, 254);
+}
+
+#div2{
+  margin: 20px;
+  width: 95%;
+  height: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  background-position: center;
+  background-image: url(../assets/HS_Floorstanding_2.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  color: rgb(255, 254, 254);
+}
+
+#div3{
+
+  margin: 20px;
+  margin-top: 40px;
+  width: 95%;
+  height: 240px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  justify-self: center;
+  justify-content: center;
+  align-items: center;
+  background-position: center;
+  background-image: url(../assets/stephen-harlan-TUCVPkK3uwo-unsplash.jpg);
+  background-size: cover;
+  border-radius: 10px;
+  color: rgb(255, 254, 254);
+}
+
+#footer{
+  
+
+  display: flex;
+  height: 200px;
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+  justify-self: center;
+  align-items: center;
+  
+  
+  background-color: rgb(23, 23, 23);
+
+}
+
+
+/* #cards :hover {
+  border: solid 2px rgb(18, 194, 48);
+  
+} */
+
+#cards {
+  opacity: 90%; }
+  #cards a {
+    background-color: #ecdb26c7; 
+    border: #6b0096fb; }
+    #cards a:hover {
+      background-color: #ecdb26f6; }
+
+#cards:hover {
+  /* box-shadow: 1px 1px 120px  #8a8a8aad; */
+  box-shadow: 0px 0px 2px  #000000;
+  opacity: 100%; 
+  border:20px solid rgb(13, 12, 12);
+ }
+
+
+
+ #cartContainer {
+  border: 1px solid rgb(2, 2, 2);
+  background-color: rgb(255, 255, 255);
+  display: block;
+  min-width: 100px;
+  min-height: 50px;
+  color: black; /* Asegúrate de que esté visible */
+}
+
+
+
+
+/* 
+=======================
+========================
+======================= */
+
+.cart__sidebar {
+  position: fixed;
+  top: 0;
+  right: -300px; /* Oculto fuera de la vista */
+  width: 300px;
+  height: 100%;
+  background-color: #f4f4f4;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.5);
+  transition: right 0.3s ease;
+  padding: 20px;
+  z-index: 1000;
+}
+
+.cart__sidebar--open {
+  right: 0; /* Se muestra cuando se añade la clase --open */
+}
+
+.cart__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cart__title {
+  color: #333;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.cart__close {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  cursor: pointer;
+  font-size: 1.5rem;
+  border: none;
+  background-color: transparent;
+  color: rgb(0, 0, 0);
+  z-index: 1002; /* Asegúrate de que esté sobre otros elementos */
+}
+
+.cart__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px 0;
+}
+
+.cart__items {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cart__item {
+  width: 270px;
+  border: solid 1px gainsboro;
+  margin: 10px;
+  border-radius: 8px;
+  padding: 20px;
+}
+.cart__item-title {
+  font-size: bold;
+  color: rgb(82, 82, 82);
+}
+
+.cart__itemPrice {
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.cart__span {
+  font-weight: bold;
+}
+
+.cart__handleQuantity {
+  width: 80px;
+  height: 30px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  background-color: rgb(158, 158, 158);
+  color: white;
+}
+
+.cart__delete {
+  width: 60px;
+  height: 30px;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  background-color: red;
+  color: white;
+  border-radius: 8px;
+}
+
+.cart__totalPrice {
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.cart__checkout {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background-color: #000000;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.cart__checkout:hover {
+  background-color: #3b3b3b;
+  color: white;
+}
+
+/* Estilo del botón para abrir el carrito */
+
+.cart__wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+.cart__openButton {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #333;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+.cart__openButton:hover {
+  background-color: #555;
+}
+
+.cart__item-count {
+  position: absolute; /* Posiciona el contador de manera absoluta dentro del contenedor */
+  top: 10px; /* Ajusta según sea necesario */
+  right: 10px; /* Ajusta según sea necesario */
+  background-color: red;
+  color: white;
+  border-radius: 50%;
+  padding: 5px 10px;
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10001;
+}
+
+.cart__increase,
+.cart__decrease,
+.cart__remove {
+  background-color: #c0c0c0;
+  padding: 10px;
+  border: 1px solid gainsboro;
+  gap:8px;
+  border-radius: 2px;
+  cursor: pointer;
+}
+
+.cart__increase:hover,
+.cart__decrease:hover,
+.cart__remove:hover {
+  background-color: #555;
+  color: white;
+}
