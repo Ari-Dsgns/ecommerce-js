@@ -1,4 +1,4 @@
-import { getCartItems } from "./carrito.js";
+import { actualizarNumeroCarrito, agregarAlCarrito, getCartItems } from "./carrito.js";
 
 const products=[
 
@@ -171,72 +171,84 @@ export const renderProducts=()=>{
         </div>
         `;
 
-        
-
-        
         containerList.append(productCard);
-
         // console.log(productCard);
-
-        
     })
+
+    
 };
 
 
+export function renderProductsInCart(){
 
-export const updateCartUi=()=>{
+    const containerList= document.getElementById("productosCarrito");
     
+    const memoria=JSON.parse(localStorage.getItem("vinilos"));
+    console.log(memoria);
+    if(memoria && memoria.length >0){
+        memoria.forEach((product)=>{
 
-    const cartContainer=document.querySelector(".cartContainer");
+        const productCart=document.createElement("div");
 
-    cartContainer.innerHTML="";
+        productCart.classList.add("productCart");
 
-    
+        productCart.setAttribute("data-id", product.id);
 
-    console.log(cartContainer);
+        productCart.innerHTML= `
 
-    
-
-    console.log("cart", cartContainer);
-
-
-
-    const cartItems=getCartItems();
-
-     
-
-    cartItems.forEach((item)=>{
-
-
-        const cartItem=document.createElement("div");
-
-        cartItem.classList.add("cart__item");
-
-        cartItem.setAttribute("data-id", item.id);
-
-        cartItem.innerHTML=`
-
-        <div class="card border-5 border-white" style="width: 16rem">
-            <div class="cart__item-title">${item.title}</div>
-            <div>${item.price}</div>
-            <div>
-                <button class="cart__increase"> + </button>
-                <button class="cart__dicrease"> - </button>
-                <button class="cart__remove">Eliminar</button>
+        <div class="card border-5 border-white" style="width: 16rem"; id="cards">
+            <img src="${product.image}" class="card-img-top"  alt="...">
+            <div class="card-body">
+                <h5 class="card__title">${product.title}</h5>
+                <h6 class="card__subtitle">${product.subtitle}</h6>
+                <h6 class="card__price">${product.price}€</h6>
+                <a href="#" class="btn"><i class="bi bi-cart"></i> Agregar</a>
             </div>
         </div>
         `;
 
-        
-        
-        console.log("Elementos del carrito:", cartItems);
-
-        console.log(cartItem)
-
-
-        cartContainer.appendChild(cartItem);
+        containerList.appendChild(productCart);
+        // console.log(productCard);
     })
-
 };
+
+}
+
+
+export const updateCartUi = () => {
+    const cartContainer = document.querySelector(".productosCarrito");
+
+    
+    const cartItems = getCartItems();
+
+    cartItems.forEach((item) => {
+    const cartItem = document.createElement("div");
+    cartItem.classList.add("cart__item");
+    cartItem.setAttribute("data-id", item.id);
+
+    cartItem.innerHTML = `
+    <div class="cart__item">
+        <div class="cart__item-title">${item.title}</div>
+        <div>${item.price}</div>
+        <div>
+            <button class="cart__increase">+</button>
+            <button class="cart__decrease">-</button>
+            <button class="cart__remove">Eliminar</button>
+        </div>
+        </div>
+    
+    `;
+
+    cartContainer.appendChild(cartItem);
+    });
+};
+
+
+
+
+
+
+
+
 
 
