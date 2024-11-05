@@ -9,7 +9,7 @@ const products=[
         subtitle:"Nirvana",
         price:35.00,
         stock:23,
-        image: "../assets/nevermind.jpg",
+        image: "./assets/nevermind.jpg",
 
     },
 
@@ -20,7 +20,7 @@ const products=[
         subtitle:"Pearl Jam",
         price:42.00,
         stock:26,
-        image: "../assets/ten.jpg",
+        image: "./assets/ten.jpg",
 
     },
 
