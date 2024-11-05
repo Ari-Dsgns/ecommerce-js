@@ -31,7 +31,7 @@ const products=[
         subtitle:"Metallica",
         price:45.00,
         stock:16,
-        image: "../assets/master.jpg",
+        image: "./assets/master.jpg",
 
     },
 
@@ -42,7 +42,7 @@ const products=[
         subtitle:"Rammstein",
         price:58.00,
         stock:8,
-        image: "../assets/mutter.jpg",
+        image: "./assets/mutter.jpg",
 
     },
 
@@ -53,7 +53,7 @@ const products=[
         subtitle:"Alice in Chains",
         price:48.00,
         stock:5,
-        image: "../assets/facelift.jpg",
+        image: "./assets/facelift.jpg",
 
     },
 
@@ -64,7 +64,7 @@ const products=[
         subtitle:"Audioslave",
         price:60.00,
         stock:9,
-        image: "../assets/revelations.jpg",
+        image: "./assets/revelations.jpg",
 
     },
 
@@ -75,7 +75,7 @@ const products=[
         subtitle:"Radiohead",
         price:58.00,
         stock:12,
-        image: "../assets/ok.jpg",
+        image: "./assets/ok.jpg",
 
     },
 
@@ -86,7 +86,7 @@ const products=[
         subtitle:"Smashinng Pumpkins",
         price:49.00,
         stock:5,
-        image: "../assets/siamese.jpg",
+        image: "./assets/siamese.jpg",
 
     },
 
@@ -97,7 +97,7 @@ const products=[
         subtitle:"Tool",
         price:79.00,
         stock:1,
-        image: "../assets/lateralus.jpg",
+        image: "./assets/lateralus.jpg",
 
     },
 
@@ -108,7 +108,7 @@ const products=[
         subtitle:"PJ Harvey",
         price:48.00,
         stock:6,
-        image: "../assets/rid.jpg",
+        image: "./assets/rid.jpg",
 
     },
 
@@ -119,7 +119,7 @@ const products=[
         subtitle:"Guns n'roses",
         price:57.00,
         stock:2,
-        image: "../assets/illusion.jpg",
+        image: "./assets/illusion.jpg",
 
     },
 
@@ -130,7 +130,7 @@ const products=[
         subtitle:"A Perfect Circle",
         price:46.00,
         stock:13,
-        image: "../assets/thirteenth.jpg",
+        image: "./assets/thirteenth.jpg",
 
     },
 
@@ -141,7 +141,7 @@ const products=[
         subtitle:"Siouxsie and The Banshees",
         price:86.00,
         stock:1,
-        image: "../assets/rapture.jpg",
+        image: "./assets/rapture.jpg",
 
     },
 ];
