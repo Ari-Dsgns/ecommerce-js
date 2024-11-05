@@ -161,7 +161,7 @@ export const renderProducts=()=>{
         productCard.innerHTML= `
 
         <div class="card border-5 border-white" style="width: 16rem"; id="cards">
-            <img src="${product.image}" class="card-img-top"  alt="...">
+            <img src="${product.image}" class="card-img-top"  alt="${product.image}">
             <div class="card-body">
                 <h5 class="card__title">${product.title}</h5>
                 <h6 class="card__subtitle">${product.subtitle}</h6>
